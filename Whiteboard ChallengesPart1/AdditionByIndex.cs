@@ -17,7 +17,7 @@ namespace Whiteboard_ChallengesPart1
         public int[][] GetProblemSet(int minValue, int maxValue, int arraySize)
         {
             int[] randomArray = new int[arraySize];
-            int[] allPossibleSums = new int[CalculateCountOfSums(arraySize)];
+            int[] allPossibleSums = new int[CalculateCountOfSumsFormula(arraySize)];
             int sumsIndex = 0;
 
             randomArray = InitializeRandomArray(minValue, maxValue, arraySize);
@@ -80,6 +80,16 @@ namespace Whiteboard_ChallengesPart1
             }
             return result;
         }
+        public int CalculateCountOfSumsFormula(int arraySize)
+        {
+            // Answers are recognizable as Triangular Numbers according to research.
+            // 1,3,4,5  Accept ours with value arraySize = 2 is the first number.
+            // Equation for nth term = 1/2n(n + 1)
+            // Our modification for nth term where (1/2(n-1))((n-1) + 1) = (1/2(n-1))*n
+            //double result = (.5 * ((double)arraySize-1)) * (double)arraySize;
+            
+            return  ((arraySize -1) * arraySize) / 2;
+        }
         public void DisplayProblemSet(int[][] problemSet)
         {
             int[] givenArray = problemSet[0];
@@ -120,7 +130,6 @@ namespace Whiteboard_ChallengesPart1
 
             DisplaySolveParameters(givenArray, solveFor);
 
-
         }
 
         private void DisplaySolveParameters(int[] givenArray, int solveFor)
@@ -134,3 +143,5 @@ namespace Whiteboard_ChallengesPart1
         }
     }
 }
+
+
