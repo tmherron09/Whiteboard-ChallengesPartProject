@@ -110,6 +110,27 @@ namespace Whiteboard_ChallengesPart1
             }
             Console.ReadLine();
         }
+        public void SolveProblemSet(int[][] problemSet)
+        {
+            int[] givenArray = problemSet[0];
+            int[] allPossibleSums = problemSet[1];
 
+            int indexOfToSolve = rng.Next(0, allPossibleSums.Length + 1); // study note: Bound(inclusive, exclusive)
+            int solveFor = allPossibleSums[indexOfToSolve];
+
+            DisplaySolveParameters(givenArray, solveFor);
+
+
+        }
+
+        private void DisplaySolveParameters(int[] givenArray, int solveFor)
+        {
+            Console.WriteLine("Given an array of integers and a value, find the indices of the two values\nthat when added together equal the value.\nThe Given Array:\n");
+            for(int i = 0; i < givenArray.Length; i++)
+            {
+                Console.Write($"{givenArray[i]}{(i != (givenArray.Length - 1) ? "," : "\n")}");
+            }
+            Console.WriteLine($"The value to solve for.\n{solveFor}\n");
+        }
     }
 }
