@@ -10,6 +10,11 @@ namespace Whiteboard_ChallengesPart1
     {
         static void Main(string[] args)
         {
+
+            Demo demo = new Demo();
+            demo.AdditionByIndex(1, 20, 6);
+
+            Console.ReadLine();
         }
     }
 }
