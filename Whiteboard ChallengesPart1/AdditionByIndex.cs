@@ -14,6 +14,13 @@ namespace Whiteboard_ChallengesPart1
         {
             rng = new Random();
         }
+        /// <summary>
+        /// Creates a Randomly generated problem set array and an array of all possible two indice sums.
+        /// </summary>
+        /// <param name="minValue">The min value for the problem set array.</param>
+        /// <param name="maxValue">The max value for the problem set array.</param>
+        /// <param name="arraySize">The size of the problem set array.</param>
+        /// <returns>A Jagged array | array[0] = Problem Set (Generated Array) | array[1] = All possible sums.</returns>
         public int[][] GetProblemSet(int minValue, int maxValue, int arraySize)
         {
             int[] randomArray = new int[arraySize];
@@ -70,6 +77,11 @@ namespace Whiteboard_ChallengesPart1
             }
             return array;
         }
+        /// <summary>
+        /// Calculates the size for the array of all possible sums of two indices.
+        /// </summary>
+        /// <param name="arraySize">Problem set array size.</param>
+        /// <returns>An integer for initializing size of allPossibleSumsArray[]</returns>
         public int CalculateCountOfSums(int arraySize)
         {
             int result = 0;
@@ -80,6 +92,11 @@ namespace Whiteboard_ChallengesPart1
             }
             return result;
         }
+        /// <summary>
+        /// Calculates the size for the array of all possible sums of two indices using formula for finding "Triangular Numbers" *formula name being verified.
+        /// </summary>
+        /// <param name="arraySize">Problem set array size.</param>
+        /// <returns>An integer for initializing size of allPossibleSumsArray[]</returns>
         public int CalculateCountOfSumsFormula(int arraySize)
         {
             // Answers are recognizable as Triangular Numbers according to research.
@@ -90,6 +107,10 @@ namespace Whiteboard_ChallengesPart1
             
             return  ((arraySize -1) * arraySize) / 2;
         }
+        /// <summary>
+        /// Cleanly writes to the console a Problem Set with matching nested sums of indices.
+        /// </summary>
+        /// <param name="problemSet">Jagged array of Problem Set and All Sums Array</param>
         public void DisplayProblemSet(int[][] problemSet)
         {
             int[] givenArray = problemSet[0];
@@ -120,6 +141,10 @@ namespace Whiteboard_ChallengesPart1
             }
             Console.ReadLine();
         }
+        /// <summary>
+        /// Takes in a Problem Set and defines a value to solve for. Calls methods to Display, Solve and Present conclusion.
+        /// </summary>
+        /// <param name="problemSet">Jagged array of Problem Set and All Sums Array</param>
         public void SolveProblemSet(int[][] problemSet)
         {
             int[] givenArray = problemSet[0];
@@ -131,7 +156,11 @@ namespace Whiteboard_ChallengesPart1
             DisplaySolveParameters(givenArray, solveFor);
 
         }
-
+        /// <summary>
+        /// Writes to console explaination of the problem along with given Problem Set and the selected value to solve for.
+        /// </summary>
+        /// <param name="givenArray">The given array from the Problem Set</param>
+        /// <param name="solveFor">Integer value of the sum of two indices we are solving for.</param>
         private void DisplaySolveParameters(int[] givenArray, int solveFor)
         {
             Console.WriteLine("Given an array of integers and a value, find the indices of the two values\nthat when added together equal the value.\nThe Given Array:\n");
